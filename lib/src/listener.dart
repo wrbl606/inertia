@@ -11,7 +11,7 @@ import 'value.dart';
 /// velocity information to [Inertia] inherited widget which will be then
 /// used by Inertia children widgets (like [InertiaSpacing]).
 ///
-/// Configure the behavior via [duration], [curve] and [maxStretch] attributes.
+/// Configure the behavior via [duration], [curve] and [maxBlur] attributes.
 class InertiaListener extends StatefulWidget {
   /// Child to be listened to.
   ///
@@ -20,29 +20,9 @@ class InertiaListener extends StatefulWidget {
   /// consumed those).
   final Widget child;
 
-  /// Duration of the stretching animation.
-  ///
-  /// When the velocity is not directly controlled by the pointer,
-  /// this is the duration in which any changes to Inertia children
-  /// (like [InertiaSpacing]) stretch values will occur.
-  final Duration duration;
-
-  /// Curve of the stretching animation.
-  ///
-  /// When the velocity is not directly controlled by the pointer,
-  /// this is the curve which will be used to animate any changes to
-  /// Inertia children (like [InertiaSpacing]).
-  final Curve curve;
-
-  /// Maximum stretch to be applied to Inertia children (like [InertiaSpacing]).
-  final double maxStretch;
-
   const InertiaListener({
     super.key,
     required this.child,
-    this.duration = const Duration(milliseconds: 400),
-    this.curve = Curves.fastLinearToSlowEaseIn,
-    this.maxStretch = 5,
   });
 
   @override
@@ -117,9 +97,6 @@ class InertiaListenerState extends State<InertiaListener> {
           stream: velocity$,
           initialData: InertiaValue.zero,
           builder: (context, snapshot) => Inertia(
-            duration: widget.duration,
-            curve: widget.curve,
-            maxStretch: widget.maxStretch,
             value: snapshot.data!,
             child: widget.child,
           ),

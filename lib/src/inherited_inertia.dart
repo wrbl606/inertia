@@ -8,30 +8,10 @@ class Inertia extends InheritedWidget {
   /// Calculated velocity information.
   final InertiaValue value;
 
-  /// Duration of the stretching animation.
-  ///
-  /// When the velocity is not directly controlled by the pointer,
-  /// this is the duration in which any changes to Inertia children
-  /// (like [InertiaSpacing]) stretch values will occur.
-  final Duration duration;
-
-  /// Curve of the stretching animation.
-  ///
-  /// When the velocity is not directly controlled by the pointer,
-  /// this is the curve which will be used to animate any changes to
-  /// Inertia children (like [InertiaSpacing]).
-  final Curve curve;
-
-  /// Maximum stretch to be applied to Inertia children (like [InertiaSpacing]).
-  final double maxStretch;
-
   const Inertia({
     super.key,
     required super.child,
     this.value = InertiaValue.zero,
-    this.duration = const Duration(milliseconds: 400),
-    this.curve = Curves.fastLinearToSlowEaseIn,
-    this.maxStretch = 5,
   });
 
   static Inertia of(BuildContext context) {
@@ -49,8 +29,5 @@ class Inertia extends InheritedWidget {
   @override
   bool updateShouldNotify(Inertia oldWidget) =>
       oldWidget.value.value != value.value ||
-      oldWidget.value.axis != value.axis ||
-      oldWidget.duration != duration ||
-      oldWidget.curve != curve ||
-      oldWidget.maxStretch != maxStretch;
+      oldWidget.value.axis != value.axis;
 }
