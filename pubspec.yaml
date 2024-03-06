@@ -1,6 +1,6 @@
 name: scrollable_inertia
 description: Customizable scrollable's animations to make your app stand out from the crowd.
-version: 0.0.1
+version: 0.0.1+1
 homepage: https://wrbl.xyz
 repository: https://github.com/wrbl606/inertia
 topics:

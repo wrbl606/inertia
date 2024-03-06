@@ -12,7 +12,7 @@ Each interia effect is based on Scrollable's (i.e. ListView, SingleChildScrollVi
 
 Make the list's items be affected by inertia of the scroll:
 
-<img src="asset/spacing.webp" alt="Inertia-based spacing demo" width=400>
+<img src="https://wrbl.xyz/spacing.webp" alt="Inertia-based spacing demo" width=400>
 
 Wrap _**each**_ child of the scrollable with the `InertiaSpacing` widget, e.g.:
 
@@ -30,7 +30,7 @@ InertiaListener(
 
 Make the list's items be affected by inertia of the scroll:
 
-<img src="asset/blur.webp" alt="Motion blur demo" width=400>
+<img src="https://wrbl.xyz/blur.webp" alt="Motion blur demo" width=400>
 
 Wrap the whole scrollable with the `MotionBlur`, e.g.:
 
