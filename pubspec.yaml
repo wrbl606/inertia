@@ -1,4 +1,4 @@
-name: inertia
+name: scrollable_inertia
 description: Customizable scrollable's animations to make your app stand out from the crowd.
 version: 0.0.1
 homepage: https://wrbl.xyz
@@ -10,9 +10,9 @@ topics:
   - scrollable
 screenshots:
   - description: 'Motion blur demo'
-    path: docs/blur.webp
+    path: asset/blur.webp
   - description: 'Interia-based spacing demo'
-    path: docs/spacing.webp
+    path: asset/spacing.webp
 
 environment:
   sdk: '>=3.0.0 <4.0.0'

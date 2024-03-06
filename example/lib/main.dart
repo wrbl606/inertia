@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:inertia/inertia.dart';
+import 'package:scrollable_inertia/scrollable_inertia.dart';
 
 void main() {
   runApp(const MyApp());

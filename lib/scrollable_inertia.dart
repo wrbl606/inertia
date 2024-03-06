@@ -1,4 +1,4 @@
-library inertia;
+library scrollable_inertia;
 
 export 'src/effects/spacing.dart';
 export 'src/effects/motion_blur.dart';

@@ -12,7 +12,7 @@ dependencies:
   faker: ^2.0.0
   flutter:
     sdk: flutter
-  inertia:
+  scrollable_inertia:
     path: ../
 
 dev_dependencies:
