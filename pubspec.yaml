@@ -5,7 +5,7 @@ homepage: https://wrbl.xyz
 repository: https://github.com/wrbl606/inertia
 topics:
   - flutter
-  - implicit_animation
+  - implicit-animation
   - widgets
   - scrollable
 screenshots:
