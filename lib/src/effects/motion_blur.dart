@@ -26,7 +26,7 @@ class MotionBlur extends StatelessWidget {
   const MotionBlur({
     super.key,
     required this.child,
-    this.maxBlur = 5,
+    this.maxBlur = 25,
     this.deadZone = 5,
   });
 
@@ -37,12 +37,13 @@ class MotionBlur extends StatelessWidget {
       0,
       min(inertia.value.value.abs(), maxBlur + deadZone) - deadZone,
     );
-    final filter = inertia.value.axis == Axis.vertical
-        ? ImageFilter.blur(sigmaY: velocity)
-        : ImageFilter.blur(sigmaX: velocity);
+    final filter = switch (inertia.value.axis) {
+      Axis.vertical => ImageFilter.blur(sigmaY: velocity),
+      Axis.horizontal => ImageFilter.blur(sigmaX: velocity),
+    };
 
-    return BackdropFilter(
-      filter: filter,
+    return ImageFiltered(
+      imageFilter: filter,
       child: child,
     );
   }

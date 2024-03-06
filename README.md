@@ -1,39 +1,43 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# inertia
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+A set of easy to apply scroll list customizations to make your Flutter application stand out in the crowd.
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+Each interia effect is based on Scrollable's (i.e. ListView, SingleChildScrollView, GridView, ...) ability to notify parent widgets about the current speed and axis of the current scroll action. `InertiaListener` is the widget that will pick up the information and pass it down to specific effects to apply the inertia-based animation.
+
+### Inertia-based spacing
+
+Make the list's items be affected by inertia of the scroll:
+
+<img src="docs/spacing.webp" alt="Inertia-based spacing demo" width=400>
+
+Wrap _**each**_ child of the scrollable with the `InertiaSpacing` widget, e.g.:
 
 ```dart
-const like = 'sample';
+InertiaListener(
+  child: ListView.builder(
+    itemBuilder: (_, __) => InertiaSpacing(
+      child: YourListItem()
+    ),
+  ),
+)...
 ```
 
-## Additional information
+### Motion blur
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+Make the list's items be affected by inertia of the scroll:
+
+<img src="docs/blur.webp" alt="Motion blur demo" width=400>
+
+Wrap the whole scrollable with the `MotionBlur`, e.g.:
+
+```dart
+InertiaListener(
+  child: MotionBlur(
+    child: GridView.builder(...)
+  ),
+)...
+```

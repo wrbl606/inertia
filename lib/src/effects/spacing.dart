@@ -32,7 +32,7 @@ class InertiaSpacing extends StatelessWidget {
     super.key,
     required this.child,
     this.duration = const Duration(milliseconds: 400),
-    this.curve = Curves.fastLinearToSlowEaseIn,
+    this.curve = Curves.easeOutCubic,
     this.maxStretch = 5,
   });
 
@@ -40,9 +40,10 @@ class InertiaSpacing extends StatelessWidget {
   Widget build(BuildContext context) {
     final inertia = Inertia.of(context);
     final stretch = min(inertia.value.value.abs(), maxStretch) / 2;
-    final padding = inertia.value.axis == Axis.vertical
-        ? EdgeInsets.symmetric(vertical: stretch)
-        : EdgeInsets.symmetric(horizontal: stretch);
+    final padding = switch (inertia.value.axis) {
+      Axis.vertical => EdgeInsets.symmetric(vertical: stretch),
+      Axis.horizontal => EdgeInsets.symmetric(horizontal: stretch),
+    };
 
     return AnimatedContainer(
       duration: duration,

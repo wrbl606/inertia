@@ -145,16 +145,14 @@ class _ListWithMotionBlur extends State<ListWithMotionBlur> {
 
   @override
   Widget build(BuildContext context) => InertiaListener(
-        child: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 4,
-            mainAxisSpacing: 2,
-            crossAxisSpacing: 2,
-          ),
-          itemBuilder: (context, index) => MotionBlur(
-            maxBlur: 10,
-            deadZone: 10,
-            child: Image.asset(
+        child: MotionBlur(
+          child: GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 4,
+              mainAxisSpacing: 2,
+              crossAxisSpacing: 2,
+            ),
+            itemBuilder: (context, index) => Image.asset(
               _images[seqIterator++ % _images.length],
             ),
           ),
